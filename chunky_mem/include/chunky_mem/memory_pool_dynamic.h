@@ -24,7 +24,7 @@ namespace chunky_mem {
     public:
         using idx_type = idx_t;
         using size_type = size_t;
-        using memory_pool_type = memory_pool::MemoryPool<idx_type, size_type>;
+        using memory_pool_type = chunky_mem::MemoryPool<idx_type, size_type>;
         using chunk_type = typename memory_pool_type::chunk_type;
         /*MemoryPoolDynamic()
             : MemoryPoolDynamic(1024 * 1024 * 5, 16)
