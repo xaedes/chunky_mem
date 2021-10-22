@@ -38,6 +38,8 @@ namespace chunky_mem
         const linked_list_type& freeSlots()     const { return m_freeSlots; }
         const linked_list_type& occupiedSlots() const { return m_occupiedSlots; }
 
+        bool contains(idx_type idx) const { return occupiedSlots().contains(idx); }
+
     protected:
         idx_type slot_push_back();
         idx_type slot_push_back(const item_type& item);
