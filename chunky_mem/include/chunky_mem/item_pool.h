@@ -106,14 +106,14 @@ namespace chunky_mem
     {
         m_slots.emplace_back();
         // m_slots.push_back(item_type());
-        return m_slots.size()-1;
+        return static_cast<idx_type>(m_slots.size()-1);
     }    
 
     template <class A, class B, class idx_type, class D>
     idx_type ItemPool<A,B,idx_type,D>::slot_push_back(const item_type& item)
     {
         m_slots.push_back(item);
-        return m_slots.size()-1;
+        return static_cast<idx_type>(m_slots.size() - 1);
     }    
 
     // template <class A, class B, class idx_type, class D>
