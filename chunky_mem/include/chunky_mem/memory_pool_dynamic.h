@@ -57,6 +57,7 @@ namespace chunky_mem {
 
         bool destroy(void* ptr)
         {
+            // no empty standard constructor for type_index, so we must assign it some dummy value
             std::type_index poolIdx = typeid(int);
             idx_type chunkIdx;
             idx_type idx;
@@ -80,7 +81,8 @@ namespace chunky_mem {
 
         bool destruct(void* ptr)
         {
-            std::type_index poolIdx = typeid(int); // no standard constructor =(
+            // no empty standard constructor for type_index, so we must assign it some dummy value
+            std::type_index poolIdx = typeid(int); 
             idx_type chunkIdx;
             idx_type idx;
             if (find(ptr, poolIdx, chunkIdx, idx))
