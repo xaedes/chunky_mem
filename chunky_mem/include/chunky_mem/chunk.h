@@ -216,7 +216,7 @@ namespace chunky_mem {
         {
             m_recycled.clear();
             m_countAllocated = chunkSize();
-            for(idx_type& idx = 0; idx < chunkSize(); ++idx)
+            for(idx_type idx = 0; idx < chunkSize(); ++idx)
             {
                 if (isFree(idx))
                 {
