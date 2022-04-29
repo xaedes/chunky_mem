@@ -84,10 +84,10 @@ namespace chunky_mem {
         }
         ~MemoryPool()
         {
-            for (int chunkIdx = 0; chunkIdx < m_chunks.size(); ++chunkIdx)
+            for (idx_type chunkIdx = 0; chunkIdx < m_chunks.size(); ++chunkIdx)
             {
                 auto& chunk = getChunk(chunkIdx);
-                for (int idx = 0; idx < chunk.chunkSize(); ++idx)
+                for (idx_type idx = 0; idx < chunk.chunkSize(); ++idx)
                 {
                     if (chunk.isAllocated(idx))
                     {

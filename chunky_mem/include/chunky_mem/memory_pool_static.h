@@ -64,10 +64,10 @@ namespace chunky_mem {
     public:
         ~MemoryPoolStatic()
         {
-            for (int chunkIdx = 0; chunkIdx < m_chunks.size(); ++chunkIdx)
+            for (idx_type chunkIdx = 0; chunkIdx < m_chunks.size(); ++chunkIdx)
             {
                 chunk_type* chunk = getChunk(chunkIdx);
-                for (int idx = 0; idx < chunk_size; ++idx)
+                for (idx_type idx = 0; idx < chunk_size; ++idx)
                 {
                     if (chunk->isAllocated(idx))
                     {
