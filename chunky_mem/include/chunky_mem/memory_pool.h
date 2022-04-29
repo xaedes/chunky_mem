@@ -7,6 +7,7 @@
 #include <array>
 #include <cassert>
 #include <functional>
+#include <type_traits>
 #include <stdint.h>
 
 #include "chunky_mem/version.h"
@@ -36,6 +37,13 @@ namespace chunky_mem {
 
         using idx_type = idx_t;
         using size_type = size_t;
+
+        static_assert(std::is_integral<idx_type>::value, "idx_type must be integral");
+        static_assert(std::is_same<idx_type, bool>::value == false, "idx_type must not be bool");
+
+        static_assert(std::is_integral<size_type>::value, "size_type must be integral");
+        static_assert(std::is_same<size_type, bool>::value == false, "size_type must not be bool");
+        
         using chunk_type = chunk_t;
         using chunk_container_type = chunk_container_t;
         using chunk_factory_type = chunk_factory_t;
@@ -279,7 +287,7 @@ namespace chunky_mem {
             //m_chunks.push_back(new chunk_type(element_size));
             //m_countAllocated += m_chunks.back()->countAllocated();
             m_countFree += m_chunks.back()->countFree();
-            m_chunksWithFree.push_back(m_chunks.size()-1);
+            m_chunksWithFree.push_back(static_cast<idx_type>(m_chunks.size()-1));
         }
     };
 

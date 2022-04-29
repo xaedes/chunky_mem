@@ -9,6 +9,7 @@
 #include <typeindex>
 #include <unordered_map>
 #include <functional>
+#include <type_traits>
 
 #include "chunky_mem/version.h"
 #include "chunky_mem/memory_pool.h"
@@ -24,6 +25,13 @@ namespace chunky_mem {
     public:
         using idx_type = idx_t;
         using size_type = size_t;
+
+        static_assert(std::is_integral<idx_type>::value, "idx_type must be integral");
+        static_assert(std::is_same<idx_type, bool>::value == false, "idx_type must not be bool");
+
+        static_assert(std::is_integral<size_type>::value, "size_type must be integral");
+        static_assert(std::is_same<size_type, bool>::value == false, "size_type must not be bool");
+        
         using memory_pool_type = chunky_mem::MemoryPool<idx_type, size_type>;
         using chunk_type = typename memory_pool_type::chunk_type;
         /*MemoryPoolDynamic()

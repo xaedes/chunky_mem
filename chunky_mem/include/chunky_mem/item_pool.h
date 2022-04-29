@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <type_traits>
 #include "chunky_mem/index_set_linked_list_vector.h"
 
 namespace chunky_mem
@@ -18,6 +19,9 @@ namespace chunky_mem
         using container_type   = container_t;
         using idx_type         = idx_t;
         using linked_list_type = linked_list_t;
+
+        static_assert(std::is_integral<idx_type>::value, "idx_type must be integral");
+        static_assert(std::is_same<idx_type, bool>::value == false, "idx_type must not be bool");
 
         idx_type insert();
         idx_type insert(const item_type& item);

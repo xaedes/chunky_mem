@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <array>
+#include <type_traits>
 #include "chunky_mem/version.h"
 
 namespace chunky_mem {
@@ -11,6 +12,13 @@ namespace chunky_mem {
     {
         using idx_type = idx_t;
         using size_type = size_t;
+        
+        static_assert(std::is_integral<idx_type>::value, "idx_type must be integral");
+        static_assert(std::is_same<idx_type, bool>::value == false, "idx_type must not be bool");
+
+        static_assert(std::is_integral<size_type>::value, "size_type must be integral");
+        static_assert(std::is_same<size_type, bool>::value == false, "size_type must not be bool");
+
 
         struct Item
         {
