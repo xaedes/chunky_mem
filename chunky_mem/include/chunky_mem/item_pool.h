@@ -10,7 +10,7 @@ namespace chunky_mem
     template <
         typename item_t,
         typename container_t = std::vector<item_t>,
-        typename idx_t = int,
+        typename idx_t = size_t,
         typename linked_list_t = IndexSetLinkedListVector<idx_t, size_t>
     >
     struct ItemPool

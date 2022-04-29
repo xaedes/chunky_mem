@@ -17,7 +17,7 @@ namespace chunky_mem {
         typename element_t, 
         int chunk_size_t=1024*1024/(10*4), 
         int alignment_size_t = 16,
-        typename idx_t = int,
+        typename idx_t = size_t,
         typename size_t = size_t,
         typename chunk_t = Chunk<idx_t, size_t>,
         typename chunk_container_t = std::vector<chunk_t*>,

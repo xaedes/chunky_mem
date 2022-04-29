@@ -18,7 +18,7 @@
 namespace chunky_mem {
 
     template<
-        typename idx_t = int,
+        typename idx_t = size_t,
         typename size_t = size_t,
         typename chunk_t = Chunk<idx_t, size_t>,
         typename chunk_container_t = std::vector<chunk_t*>,

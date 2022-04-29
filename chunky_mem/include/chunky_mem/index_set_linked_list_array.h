@@ -9,7 +9,7 @@
 
 namespace chunky_mem {
 
-    template<int capacity_t_, typename idx_t = int, typename size_t = idx_t>
+    template<int capacity_t_, typename idx_t = size_t, typename size_t = idx_t>
     class IndexSetLinkedListArray : protected LinkedList<idx_t, size_t>
     {
     public:

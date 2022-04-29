@@ -21,7 +21,7 @@ namespace chunky_mem {
         size_t chunk_size_t = (1024*64-(1024*64)%element_size_t/element_size_t), 
         size_t max_chunks_t = 1024,
         size_t alignment_t = 16,
-        typename idx_t = int,
+        typename idx_t = size_t,
         typename size_t = size_t
     >
     class MemoryPoolStatic

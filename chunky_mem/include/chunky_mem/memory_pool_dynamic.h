@@ -17,7 +17,7 @@
 namespace chunky_mem {
     //*/
     template<
-        typename idx_t = int,
+        typename idx_t = size_t,
         typename size_t = size_t
     >
     class MemoryPoolDynamic //: public MemoryPool<sizeof(element_t), chunck_size_t, max_chunks_t, alignment_t, idx_t, size_t>
