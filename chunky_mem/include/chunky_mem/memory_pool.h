@@ -166,7 +166,7 @@ namespace chunky_mem {
         {
             for (size_t i = 0; i < m_chunks.size(); i++)
             {
-                chunkIdx = i;
+                chunkIdx = static_cast<idx_type>(i);
                 chunk_type& chunk = getChunk(chunkIdx);
                 if (chunk.contains(ptr))
                 {

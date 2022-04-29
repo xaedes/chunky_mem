@@ -132,8 +132,8 @@ namespace chunky_mem {
 
         inline idx_type indexOf(const void* ptr) const
         {
-            idx_type idx = ((const uint8_t*)ptr - (uint8_t*)data());
-            idx /= slotSize();
+            idx_type idx = static_cast<idx_type>( ((const uint8_t*)ptr - (uint8_t*)data()) );
+            idx /= static_cast<idx_type>(slotSize());
             return idx;
         }
 
