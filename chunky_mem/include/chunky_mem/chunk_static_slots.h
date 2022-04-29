@@ -37,8 +37,8 @@ namespace chunky_mem {
         size_type chunkSize() const { return chunk_size; }
         size_type alignment() const { return alignment_size; }
         size_type elementSize() const { return element_size; }
-        int paddingSize() const { return padding_size; };
-        int slotSize() const { return elementSize() + paddingSize(); };
+        size_type paddingSize() const { return padding_size; };
+        size_type slotSize() const { return elementSize() + paddingSize(); };
 
         struct Factory
         {
