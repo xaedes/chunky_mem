@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <type_traits>
+#include <cassert>
 #include "chunky_mem/index_set_linked_list_vector.h"
 
 namespace chunky_mem
