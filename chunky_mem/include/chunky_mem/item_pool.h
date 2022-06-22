@@ -24,6 +24,8 @@ namespace chunky_mem
         static_assert(std::is_integral<idx_type>::value, "idx_type must be integral");
         static_assert(std::is_same<idx_type, bool>::value == false, "idx_type must not be bool");
 
+        void reserve(size_t size);
+
         idx_type insert();
         idx_type insert(const item_type& item);
         
@@ -56,6 +58,23 @@ namespace chunky_mem
         linked_list_type m_freeSlots;
         linked_list_type m_occupiedSlots;
     };
+
+    template <class A, class B, class idx_type, class D>
+    void ItemPool<A,B,idx_type,D>::reserve(size_t size)
+    {
+        static std::vector<idx_type> s_to_erase;
+        s_to_erase.clear();
+        while( capacity() < size )
+        {
+            s_to_erase.push_back(insert());
+        }
+        for (auto id : s_to_erase)
+        {
+            erase(id);
+        }
+        s_to_erase.clear();
+    }
+
 
     template <class A, class B, class idx_type, class D>
     idx_type ItemPool<A,B,idx_type,D>::insert()
